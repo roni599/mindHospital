@@ -17,7 +17,9 @@
             <div class="profile-desc">
                 <div class="profile-pic">
                     <div class="count-indicator">
-                        <img class="img-xs rounded-circle " src="{{ Auth::user()->profile_photo_url }}" alt="">
+                        <img width="30" height="30" class="rounded-circle object-cover"
+                            src="{{ asset('profile-images/' . Auth::user()->profile_photo_path) }}"
+                            alt="{{ Auth::user()->name }}" />
                         <span class="count bg-success"></span>
                     </div>
                     <div class="profile-name">
@@ -77,8 +79,7 @@
         </li>
 
         <li class="nav-item menu-items mb-2">
-            <a class="nav-link"
-                href="{{ route('add_doctors') }}">
+            <a class="nav-link" href="{{ route('add_doctors') }}">
                 <span class="menu-icon">
                     <i class="mdi mdi-file-document-box"></i>
                 </span>
@@ -86,8 +87,7 @@
             </a>
         </li>
         <li class="nav-item menu-items mb-2">
-            <a class="nav-link"
-                href="{{ route('adminAppoinment') }}">
+            <a class="nav-link" href="{{ route('adminAppoinment') }}">
                 <span class="menu-icon">
                     <i class="mdi mdi-file-document-box"></i>
                 </span>
@@ -95,8 +95,7 @@
             </a>
         </li>
         <li class="nav-item menu-items mb-2">
-            <a class="nav-link"
-                href="{{ route('alldoctors') }}">
+            <a class="nav-link" href="{{ route('alldoctors') }}">
                 <span class="menu-icon">
                     <i class="mdi mdi-file-document-box"></i>
                 </span>

@@ -42,7 +42,7 @@
                                 <td>{{ $doctors->d_phone }}</td>
                                 <td>{{ $doctors->spaciality }}</td>
                                 <td>{{ $doctors->d_room }}</td>
-                                <td><img src="{{ asset('storage/doctors_images') }}/{{ $doctors->d_image }}" alt=""></td>
+                                <td><img src="{{ asset('/doctors_images') }}/{{ $doctors->d_image }}" alt=""></td>
                                 <th><a href="{{ route('deleteDoctors',$doctors->id) }}" onclick="return confirm('are you sure want to dele this doctor')" class="btn btn-sm btn-primary">Delete</a></th>
                                 <th><a href="{{ route('updateDoctors',$doctors->id) }}"  class="btn btn-sm btn-primary">Update</a></th>
                               </tr>

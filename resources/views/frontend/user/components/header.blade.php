@@ -59,11 +59,13 @@
                     </li>
                     @if (Route::has('login'))
                         @auth
-                        <li class="nav-item">
-                            <a class="btn btn-sm btn-primary ml-5 ms-5" href="{{ route('show_appoinment') }}">My appointment</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="btn btn-sm btn-primary ml-5 ms-5" href="{{ route('show_appoinment') }}">My
+                                    appointment</a>
+                            </li>
                             <li class="nav-item" style="margin-left: 50px">
-                                <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}"
+                                <img class="h-8 w-8 rounded-full object-cover"
+                                    src="{{ asset('profile-images/' . Auth::user()->profile_photo_path) }}"
                                     alt="{{ Auth::user()->name }}" />
                             </li>
                             <li class="nav-item">

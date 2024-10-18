@@ -163,8 +163,9 @@
             <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-bs-toggle="dropdown">
                     <div class="navbar-profile">
-                        <img class="img-xs rounded-circle" src="{{ Auth::user()->profile_photo_url }}"
-                            alt="{{ Auth::user()->name }}" alt="">
+                        <img  height="50" width="50" class="rounded-circle object-cover"
+                            src="{{ asset('profile-images/' . Auth::user()->profile_photo_path) }}"
+                            alt="{{ Auth::user()->name }}" />
                         <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ Auth::user()->name }}</p>
                         <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                     </div>

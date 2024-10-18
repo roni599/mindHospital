@@ -34,6 +34,12 @@ class HomeController extends Controller
     }
     public function appoinment(Request $request)
     {
+        // Check if the user is authenticated
+        if (!Auth::id()) {
+            return redirect()->back()->with('error', 'Please Login / Registration in to make an appointment.');
+        }
+
+        // Proceed with storing the appointment if the user is authenticated
         $data = new Appointment();
         $data->name = $request->name;
         $data->email = $request->email;
@@ -42,12 +48,13 @@ class HomeController extends Controller
         $data->date = $request->date;
         $data->message = $request->message;
         $data->status = 'in progressing';
-        if (Auth::id()) {
-            $data->user_id = Auth::user()->id;
-        }
+        $data->user_id = Auth::user()->id; // Assign the authenticated user's ID
         $data->save();
-        return redirect()->back()->with('success', 'Form submitted successfully!');
+
+        return redirect()->back()->with('success', 'Form submitted successfully please want for admin approve and chck mail!');
     }
+
+
     public function showAppoinment()
     {
         if (Auth::id()) {
@@ -58,8 +65,9 @@ class HomeController extends Controller
             return redirect()->back();
         }
     }
-    public function deleteAppoinment($id){
-        $appointment=Appointment::find($id);
+    public function deleteAppoinment($id)
+    {
+        $appointment = Appointment::find($id);
         $appointment->delete();
         return redirect()->back();
     }
